@@ -1,0 +1,33 @@
+{
+  "name": "bloger",
+  "version": "1.0.0",
+  "description": "this the back-end for bloger web app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "t ",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jadeja067/bloger.git"
+  },
+  "keywords": [
+    "blog",
+    "bloger",
+    "blogspot"
+  ],
+  "author": "Kuldipsinh Jadeja, Harikrishnasinh zala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jadeja067/bloger/issues"
+  },
+  "homepage": "https://github.com/jadeja067/bloger#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2"
+  }
+}
