@@ -53,10 +53,10 @@ exports.loginAdmin = async (request, response) => {
 
 exports.deleteAdmin = async (request, response) => {
   try {
-    const { adminUsername, adminPassword } = request.params;
+    const { adminUsername } = request.params;
     console.log(adminUsername);
     const adminDelete = await adminschema.deleteOne({
-      adminUsername: adminUsername,
+      adminUsername,
     });
     if (adminDelete) {
       response.json({
@@ -71,7 +71,9 @@ exports.deleteAdmin = async (request, response) => {
         message: "sorry can't delete ",
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    response.json({error.code:error.message})
+  }
 };
 
 exports.updateAdmin = async (request, response) => {
