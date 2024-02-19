@@ -52,36 +52,16 @@ exports.loginAdmin = async (request, response) => {
 };
 
 exports.deleteAdmin = async (request, response) => {
+  const adminUsername = req.params.adminUsername;
   try {
-    const adminUsername  = request.params.adminUsername;
-    console.log(adminUsername);
-
-    const findUsername = await adminschema.find({
-    adminUsername
-    })
-
-    if(findUsername){
-    response.json({adminUsername:findUsername})
-    }
-    
-    const adminDelete = await adminschema.deleteOne({
-      adminUsername,
+    const deleteAdmin = await adminschema.find({adminUsername,});
+    await deleteAdmin.deleteOne();
+    res.status(200).json({
+      status: "Success",
+      message: "Record Successfully Deleted.",
     });
-    if (adminDelete) {
-      response.json({
-        status: "success",
-        message: "Deleted Succesfully",
-        user: adminDelete
-      });
-    }
-    if (!adminDelete) {
-      response.json({
-        status: "error",
-        message: "sorry can't delete ",
-      });
-    }
-  } catch (error) {
-    response.json(error)
+  } catch (e) {
+    res.status(e);
   }
 };
 
