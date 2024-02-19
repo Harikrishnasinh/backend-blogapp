@@ -72,7 +72,7 @@ exports.deleteAdmin = async (request, response) => {
       });
     }
   } catch (error) {
-    response.json({error.code:error.message})
+    response.json(error)
   }
 };
 
