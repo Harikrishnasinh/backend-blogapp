@@ -53,7 +53,7 @@ exports.loginAdmin = async (request, response) => {
 
 exports.deleteAdmin = async (request, response) => {
   try {
-    const { adminUsername } = request.params;
+    const adminUsername  = request.params.adminUsername;
     console.log(adminUsername);
 
     const findUsername = await adminschema.find({
