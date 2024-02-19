@@ -62,6 +62,7 @@ exports.deleteAdmin = async (request, response) => {
       response.json({
         status: "success",
         message: "Deleted Succesfully",
+        user: adminDelete
       });
     }
     if (!adminDelete) {
