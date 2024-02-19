@@ -55,8 +55,13 @@ exports.deleteAdmin = async (request, response) => {
   try {
     const { adminUsername } = request.params;
     console.log(adminUsername);
-    if(!adminUsername){
-    response.json({message:"string"})
+
+    const findUsername = await adminschema.find({
+    adminUsername
+    })
+
+    if(findUsername){
+    response.json({adminUsername:findUsername})
     }
     
     const adminDelete = await adminschema.deleteOne({
